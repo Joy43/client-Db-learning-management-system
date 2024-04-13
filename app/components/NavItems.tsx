@@ -86,17 +86,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+
 import Link from 'next/link'; // Import Link from Next.js
 import CustomizedSwitches from './themes';
 
 const pages = [
   { name: 'Home', url: '/' },
-  { name: 'Courses', url: '/course' },
+ 
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
-  { name: 'FAQ', url: '/faq' }
- 
+  { name: 'FAQ', url: '/faq' },
+  { name: 'Login', url: '/login' }
+  
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -121,10 +122,11 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container className='bg-black' maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          
           <Typography
+          
             variant="h6"
             noWrap
             component="a"
@@ -139,7 +141,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            DB-Learn
+           <strong className='text-2xl text-pink-700 ' > DB-Learn</strong>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -180,7 +182,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+        
           <Typography
             variant="h5"
             noWrap

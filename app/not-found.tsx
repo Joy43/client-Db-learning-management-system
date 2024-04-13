@@ -1,8 +1,22 @@
- "use-client"
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import errorimg from '@/public/images/errorimg.png';
+import Button from '@mui/material/Button';
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
   return (
-    <div>not-found</div>
-  )
-}
+    <div className="flex flex-col items-center mt-6 justify-center">
+        <Link href="/">
+        <Button variant="contained" size="medium">
+          Go Home
+        </Button>
+        </Link>
+   
+      <Image placeholder='blur' src={errorimg} alt="Error Handle" />
+      
+    </div>
+  );
+};
+
+export default NotFound;
