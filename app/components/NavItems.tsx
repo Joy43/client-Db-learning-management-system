@@ -1,78 +1,5 @@
-// import Link from "next/link";
 
-// export const NavItemsData = [
-//     {
-//         name: "Home",
-//         url: "/",
-//     },
-//     {
-//         name: "Courses",
-//         url: "/courses"
-//     },
-//     {
-//         name: "About",
-//         url: "/about"
-//     },
-//     {
-//         name: "Policy",
-//         url: "/policy"
-//     },
-//     {
-//         name: "FAQ",
-//         url: "/faq"
-//     }
-// ];
-
-// type Props = {
-//     activeItem: number;
-//     isMobile: boolean;
-// }
-
-// const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
-//     return (
-//         <div>
-//             <div className="hidden md:flex">
-//                 {
-//                     NavItemsData && NavItemsData.map((item, index) => (
-//                         <Link href={item.url} key={index} passHref>
-//                             <span
-//                                 className={`${activeItem === index 
-//                                     ? "dark:text-[#37a39a] text-[crimson]" 
-//                                     : "dark:text-white text-black"} text-[18px] px-6 font-Poppins font-[1400]`}
-//                             >
-//                                 {item.name}
-//                             </span>
-//                         </Link>
-//                     ))
-//                 }
-//             </div>
-//             {
-//                 isMobile && (
-//                     <div className="800px:hidden mt-5">
-//                         <div className="w-full text-center py-6">
-//                             {
-//                                 NavItemsData && NavItemsData.map((item, index) => (
-//                                     <Link href={item.url} key={index} passHref>
-//                                         <span 
-//                                             className={`${activeItem === index 
-//                                                 ? "dark:text-[#37a39a] text-[crimson]" 
-//                                                 : "dark:text-white text-black"} text-[18px] px-6 font-Poppins font-[1400]`}
-//                                         >
-//                                             {item.name}
-//                                         </span>
-//                                     </Link>
-//                                 ))
-//                             }
-//                         </div>
-//                     </div>
-//                 )
-//             }
-//         </div>
-//     );
-// };
-
-// export default NavItems;
-
+'use client';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -87,24 +14,21 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-import Link from 'next/link'; // Import Link from Next.js
-import CustomizedSwitches from './themes';
+import Link from 'next/link'; 
+
 
 const pages = [
   { name: 'Home', url: '/' },
- 
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
   { name: 'FAQ', url: '/faq' },
-  { name: 'Login', url: '/login' }
-  
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -214,36 +138,42 @@ function ResponsiveAppBar() {
           </Box>
 {/* --------------end option------- */}
           <div className='flex gap-6 p-2'>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <CustomizedSwitches></CustomizedSwitches>
+          {isLoggedIn ? ( // Check if user is logged in
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            ) : (
+              <Link href="/login" passHref>
+                <Button color="inherit">Login</Button>
+              </Link>
+            )}
+          {/* <CustomizedSwitches></CustomizedSwitches> */}
           </div>
         </Toolbar>
       </Container>

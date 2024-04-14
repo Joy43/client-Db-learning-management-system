@@ -1,4 +1,27 @@
+'use client';
+
+import { Button } from "@mui/material";
+import { useFormik } from "formik";
+import Link from "next/link";
+import { FormEvent } from "react";
+import * as Yup from 'yup';
+
+const schema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Please enter email"),
+  password: Yup.string().required("Please enter your password").min(6),
+});
+
 const login: React.FC = () => {
+  const formik =useFormik({
+initialValues:{email:"",password:""},
+onSubmit:async({email,password})=>{
+  console.log(email,password)
+}
+  });
+  const {error,touched,values,hanleChanged,handleSubmit}=formik;
+
+  
+
     return (
       <div className="flex h-screen items-center justify-center bg-[#8EA7E9]/20 p-6 md:p-0">
         <div className="flex h-full w-full overflow-hidden rounded-xl shadow-md md:h-[90%] md:w-[80%] lg:h-[80%]">
@@ -16,10 +39,18 @@ const login: React.FC = () => {
           {/*------------- input side ----------------------------- */}
           <div className="flex w-full flex-col justify-center bg-[#0d081e] py-10 lg:w-[60%]">
             <h2 className="pb-8 text-center text-3xl font-bold text-[#8EA7E9]">Login Here</h2>
-            <form className="flex  w-full flex-col items-center justify-center gap-4">
-              <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="email" placeholder="Email" name="email"/>
-              <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]" type="password" placeholder="Password" name="password"/>
-              <p className="text-[14px] text-gray-400">Do not have an account ? <a className="text-[#8EA7E9] ">Create one</a></p>
+            <form onSubmit={handleSubmit} className="flex  w-full flex-col items-center justify-center gap-4">
+              {/* ------------email------- */}
+              <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]"
+               type="email" placeholder="Email" name="email"/>
+{/* ------------type password------------ */}
+              <input className="w-[80%] rounded-lg border border-[#8EA7E9] px-6 py-2 focus:outline-none focus:ring-2 focus:ring-[#8EA7E9]/50 md:w-[60%]"
+               type="password" value={values.email}
+               onChange={handleChanged} id="email"  placeholder="Password" name=""/>
+              <p className="text-[14px] text-gray-400">Do not have an account ?  
+              <Link href="/Signup" passHref>
+                <Button color="inherit">Create account </Button>
+              </Link></p>
               <input className="w-[80%] rounded-lg bg-[#8EA7E9] px-6 py-2 font-medium text-white md:w-[60%]" type="submit" />
             </form>
             {/* divider  */}

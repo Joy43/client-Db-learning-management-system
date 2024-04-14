@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import {  Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./utils/Theme-provider";
+
 import {Poppins}from "next/font/google"
-import ResponsiveAppBar from "./components/NavItems";
+import Favicon from "@/public/Favicon.png"
 
 
 const poppins=Poppins({
@@ -20,6 +20,8 @@ const josefin=Josefin_Sans({
 export const metadata: Metadata = {
   title: "DB-Learn",
   description: "this is learning manage system web application",
+  icons: [{ rel: 'icon', url: Favicon.src }],
+ 
 };
 
 export default function RootLayout({
@@ -32,9 +34,10 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${josefin} bg-gradient-to-b from-gray-900 to-black duration-300`}>
         {/* <ThemeProvider attribute="class" defaultTheme="system"enableSystem> */}
       
+     
         {children}
   
-          {/* </ThemeProvider> */}
+        
           </body>
     </html>
   );
