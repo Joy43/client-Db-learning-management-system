@@ -7,8 +7,8 @@ const Cover: React.FC = () => {
   <Card className='mt-6 mb-4'>
   <div className='lg:flex sm:grid'>
 
-<div className=' '>
-<Image src={studyimg}></Image>
+<div className=' shadow-md p-2 '>
+<Image src={studyimg}  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Picture of the author"></Image>
 
 
 </div>
