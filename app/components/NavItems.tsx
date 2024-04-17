@@ -15,6 +15,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
 import Link from 'next/link'; 
+import { url } from 'inspector';
 
 
 const pages = [
@@ -22,7 +23,7 @@ const pages = [
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
   { name: 'FAQ', url: '/faq' },
-  // { name: 'signup', url: '/clerksignup' },
+  {name:'sign-up',url:'/sign-up'}
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

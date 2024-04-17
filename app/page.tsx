@@ -9,6 +9,8 @@ import Cover from "./components/cover";
 import Coursesonline from "./components/Coursesonline";
 import Studentsay from "./components/Studentsay";
 import SuccessInfo from './components/Sucessinfo';
+import Classnote from './components/classnote';
+import Faq from './components/Faq';
 
 
 
@@ -24,8 +26,10 @@ const Page:FC<Props> =(props)=>{
 <ResponsiveAppBar></ResponsiveAppBar>
 <Cover></Cover>
 <Coursesonline></Coursesonline>
+<Classnote></Classnote>
 <Studentsay></Studentsay>
 <SuccessInfo></SuccessInfo>
+<Faq></Faq>
 <Footer></Footer>
 
 

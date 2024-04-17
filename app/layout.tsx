@@ -42,22 +42,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${josefin} bg-gradient-to-b from-gray-900 to-black duration-300`}>
       
-      
-    {/* <Providers> */}
-      {/* <Toaster></Toaster> */}
- 
+     <ClerkProvider>
+     {children}
+     </ClerkProvider>
     
-    {children}
    
-   
-    {/* </Providers> */}
-
-
   
-  
-        
           </body>
     </html>
-    // </ClerkProvider>
+    
   );
 }
