@@ -1,15 +1,15 @@
-import { Button } from 'flowbite-react';
-import Link from 'next/link';
+
 import React from 'react';
 
 export default function About() {
   return (
     <div className="w-80%">
    <div className='text-center'>
-     <Link href="/">
+     {/* <Link href="/">
 
 <Button>Go Home page</Button>
-</Link></div>
+</Link> */}
+</div>
       <iframe
         title="Embedded Content"
         src="https://660d0f1e128a30a9812c5a45--spectacular-meringue-8e0074.netlify.app/"

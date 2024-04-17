@@ -22,6 +22,7 @@ const pages = [
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
   { name: 'FAQ', url: '/faq' },
+  // { name: 'signup', url: '/clerksignup' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

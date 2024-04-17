@@ -8,23 +8,26 @@ import Cover from "./components/cover";
 
 import Coursesonline from "./components/Coursesonline";
 import Studentsay from "./components/Studentsay";
+import SuccessInfo from './components/Sucessinfo';
+
 
 
 interface Props{}
 const Page:FC<Props> =(props)=>{
-  const [open,setOpen]=useState(false);
-  const[activeItem,setActiveItem]=useState(0)
+
  
   
   return(
 <div>
 
+
 <ResponsiveAppBar></ResponsiveAppBar>
 <Cover></Cover>
 <Coursesonline></Coursesonline>
 <Studentsay></Studentsay>
-
+<SuccessInfo></SuccessInfo>
 <Footer></Footer>
+
 
 </div>
   )
