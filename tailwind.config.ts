@@ -1,4 +1,4 @@
-import { Josefin_Slab, Poppins } from "next/font/google";
+
 import type { Config } from "tailwindcss";
 const flowbite = require("flowbite-react/tailwind");
 const config: Config = {
@@ -8,33 +8,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     flowbite.content(),
   ],
-  darkMode:["class"],
-  theme: {
-    extend: {
-   fontFamily:   {
-Poppins:["var(--font-Poppins)"],
-Josefin:["var(--font-Josefin)"],
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      colors: {
-        customBlue:'#0C1E2F',
-      },
-      screens:{
-        "1000px":"1000px",
-        "1100px":"1100px",
-        "1200px":"1200px",
-        "1300px":"1300px",
-        "1500px":"1500px",
-        "800px":"800px",
-        "400px":"400px"
-
-      }
-    },
-  },
+  
   plugins: [flowbite.plugin(),],
 };
 export default config;

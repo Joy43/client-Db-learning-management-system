@@ -1,6 +1,6 @@
 
 'use client';
-import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,28 +13,34 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
+import  {  useEffect,useState } from 'react';
 import Link from 'next/link'; 
-import { url } from 'inspector';
+import { UserButton, useUser } from '@clerk/nextjs';
+
 
 
 const pages = [
   { name: 'Home', url: '/' },
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
-  { name: 'FAQ', url: '/faq' },
-  {name:'sign-up',url:'/sign-up'}
+
+ 
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  // ---------user manage-----------
+
+  const {user}=useUser();
+ useEffect(()=>{
+    console.log(user)
+  },[user])
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -140,42 +146,48 @@ function ResponsiveAppBar() {
           </Box>
 {/* --------------end option------- */}
           <div className='flex gap-6 p-2'>
-          {isLoggedIn ? ( // Check if user is logged in
-              <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
+          <Link href="/" passHref>
+               <Button color="inherit">Home</Button>
+              </Link> 
+  {/*  Check if user is logged in */}
+          {user? ( 
+
+<UserButton></UserButton>
+              // <Box sx={{ flexGrow: 0 }}>
+              //   <Tooltip title="Open settings">
+              //     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    
+              //     </IconButton>
+              //   </Tooltip>
+              //   <Menu
+              //     sx={{ mt: '45px' }}
+              //     id="menu-appbar"
+              //     anchorEl={anchorElUser}
+              //     anchorOrigin={{
+              //       vertical: 'top',
+              //       horizontal: 'right',
+              //     }}
+              //     keepMounted
+              //     transformOrigin={{
+              //       vertical: 'top',
+              //       horizontal: 'right',
+              //     }}
+              //     open={Boolean(anchorElUser)}
+              //     onClose={handleCloseUserMenu}
+              //   >
+              //     {/* {settings.map((setting) => (
+              //       <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              //         <Typography textAlign="center">{setting}</Typography>
+              //       </MenuItem>
+              //     ))} */}
+              //   </Menu>
+              // </Box>
             ) : (
-              <Link href="/login" passHref>
+              <Link href="/sign-up" passHref>
                 <Button color="inherit">Login</Button>
               </Link>
             )}
-          {/* <CustomizedSwitches></CustomizedSwitches> */}
+       
           </div>
         </Toolbar>
       </Container>
