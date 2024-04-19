@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import  {  useEffect,useState } from 'react';
 import Link from 'next/link'; 
 import { UserButton, useUser } from '@clerk/nextjs';
-
+import { MdDashboardCustomize } from "react-icons/md";
 
 
 const pages = [
@@ -143,12 +143,20 @@ function ResponsiveAppBar() {
                 <Link href={page.url}>{page.name}</Link>
               </Button>
             ))}
+           
+           
           </Box>
 {/* --------------end option------- */}
           <div className='flex gap-6 p-2'>
-          <Link href="/" passHref>
-               <Button color="inherit">Home</Button>
-              </Link> 
+             {/* -----dashboad------ */}
+             <Link href='/broswer' passHref>
+            <Button className="flex items-center gap-2 px-4 py-2 rounded-md
+             bg-gray-900 text-gray-50 hover:bg-gray-800 transition-colors">
+      <MdDashboardCustomize className="h-5 w-5" />
+      <span>Dashboard</span>
+    </Button>
+            </Link>
+          
   {/*  Check if user is logged in */}
           {user? ( 
 

@@ -8,8 +8,10 @@ export default function Searchbar() {
 
         </FaSearch>
         <input 
-        className='text bg-transparent outline-none'
+        className='text bg-transparent text-white outline-none'
         placeholder='search icon'
+        type="search"
+        inputMode='text'
         
         >
         </input>

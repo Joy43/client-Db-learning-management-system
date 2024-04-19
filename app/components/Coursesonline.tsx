@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import onlineCourse from '@/public/images/study.gif'
 import { Button } from '@mui/material';
+import Link from 'next/link';
 const Coursesonline:React.FC = () => {
     return (
         <div className='bg-[#0c1e2f]  p-2' >
@@ -51,10 +52,13 @@ const Coursesonline:React.FC = () => {
         <p className="text-xs font-semibold text-gray-400 md:text-sm">Web Developer batch-7</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base">
-        <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
-          Buy now
+      <Link href='/broswer'>
+      <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
+        Enroall Now
         </button>
-        <Button className="flex bg-lime-300 items-center ">
+      </Link>
+        {/* <button className="flex bg-lime-300 items-center rounded-lg  px-4 py-2 font-sans font-semibold
+         text-white duration-300 hover:scale-105 hover:bg-sky-600 ">
           <svg
             width={35}
             viewBox="0 0 24 24"
@@ -75,7 +79,7 @@ const Coursesonline:React.FC = () => {
             </g>
           </svg>
           <span className="text-[#05040b]">Add to Cart</span>
-        </Button>
+        </button> */}
       </div>
     </div>
 

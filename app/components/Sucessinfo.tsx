@@ -5,13 +5,13 @@ import Image from 'next/image';
 import CountUp from 'react-countup';
 const SuccessInfo: React.FC = () => {
     return (
-        <div className="bg-gray-800  flex items-center justify-center">
-            <div className="bg-[#0a0c31] max-w-max text-white p-8 rounded-lg shadow-md">
-                <div className="relative">
+         <div className="bg-gray-800  flex items-center justify-center">
+            <div className="bg-[#0a0c31] justify-center items-center max-w-max text-white p-8 rounded-lg shadow-md">
+                {/* <div className="relative">
                 <Image src="https://i.ibb.co/hFYPj2k/sucess.png" layout="fill"
                  objectFit="cover" objectPosition="center" />
 
-                </div>
+                </div> */}
                 <h1 className="text-2xl text-center  font-extrabold mt-4">
                     DB Learn for 2021-2024 academic Year Success
                 </h1>
@@ -62,7 +62,7 @@ const SuccessInfo: React.FC = () => {
 
                 </div>
             </div>
-        </div>
+      </div>
     );
 };
 

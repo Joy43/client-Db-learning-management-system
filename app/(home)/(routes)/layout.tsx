@@ -6,14 +6,14 @@ import ResponsiveAppBar from '@/app/components/NavItems';
 
 export default function homelayout({children}) {
   return (
-    <div>
+    <div className='bg-black'>
         
         <div className='h-full w-64 flex flex-col fixed inset-y-0 z-50  bg-slate-100 shadow-lg'>
     <SideBarNav></SideBarNav>
     </div>
  
     <Header></Header>
-<div className='ml-64 p-5'>
+<div className='ml-64  p-5'>
 
 {children}
 </div>

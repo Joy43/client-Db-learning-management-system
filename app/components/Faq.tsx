@@ -1,5 +1,7 @@
 'use client';
+import Image from 'next/image';
 import  { useState } from 'react';
+import faq from "@/public/images/faq.gif"
 
 interface AccordionItem {
     title: string;
@@ -54,7 +56,17 @@ const Faq: React.FC = () => {
     setIsActive((prevIdx) => (prevIdx === idx ? null : idx));
   };
   return (
-    <div className="mx-auto flex mt-6 min-h-[300px] w-fit gap-1 rotate-90 md:rotate-0">
+ <div className='lg:flex sm:grid'>
+  
+   
+   <div >
+    <Image src={faq} width={600} alt='faq ans and question'>
+
+    </Image>
+   </div>
+
+   <div className="mx-auto flex mt-6 min-h-[300px] w-fit gap-1 rotate-90 md:rotate-0">
+      
       {accordionData?.map((data, idx) => (
         <div key={idx} className="flex">
           {/* toggle item */}
@@ -72,6 +84,9 @@ const Faq: React.FC = () => {
         </div>
       ))}
     </div>
+
+ </div>
+
   );
 };
 
