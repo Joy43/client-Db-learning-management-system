@@ -1,8 +1,12 @@
-'use client';
+'use client'
 import { useEffect, useState } from 'react';
 import { getCourseListById } from '@/app/_services';
 import VideoPlayer from './_components/VideoPlayer';
-import CourseDeatils from './_components/CourseDeatils';
+import CourseDetails from './_components/CourseDeatils';
+import OptionSection from './_components/OptionSection';
+
+
+
 
 interface CourseDetail {
   chapter: {
@@ -19,7 +23,7 @@ interface CoursePreviewProps {
 }
 
 const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
-  const [courseDetails, setCourseDetails] = useState<CourseDetail | null>(null);
+  const [courseDetail, setCourseDetails] = useState<CourseDetail | null>(null);
 
   useEffect(() => {
     if (params.courseId) {
@@ -36,14 +40,15 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
 
   return (
     <div className="text-white">
-      {courseDetails ? (
+      {courseDetail ? (
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="col-span-2">
-            <VideoPlayer videoUrl={courseDetails.chapter[0]?.video.url} />
-            <CourseDeatils courseDeatil={CourseDeatils}></CourseDeatils>
+            <VideoPlayer videoUrl={courseDetail.chapter[0]?.video.url} />
+            <CourseDetails courseDeatil={courseDetail}></CourseDetails>
           </div>
-          <div>
-            Enroll option
+          {/* ---------enroll section------- */}
+          <div className='p-5'>
+<OptionSection></OptionSection>
           </div>
         </div>
       ) : (

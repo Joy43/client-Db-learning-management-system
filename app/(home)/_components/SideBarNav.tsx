@@ -36,7 +36,7 @@ export default function SideBarNav() {
 
     return (
         <div>
-            <div className='h-full bg-white border-r flex flex-col p-5 border overflow-auto shadow-md'>
+            <div className='h-full bg-[#0C1E2F] border-r flex flex-col p-5 border overflow-auto shadow-md'>
              <div className='text-center items-center'>
              <Image src={iconside} width={80} alt='logo' height={70} />
              </div>
@@ -46,8 +46,8 @@ export default function SideBarNav() {
                 {menuList.map((item, index) => (
                     <div
                         key={item.id}
-                        className={`flex gap-2 items-center p-4 px-6 text-gray-500 hover:bg-gray-200 cursor-pointer ${
-                            activeIndex === index ? 'bg-purple-50 text-purple-800' : ''
+                        className={`flex gap-2 items-center p-4 px-6 text-zinc-200 hover:bg-blue-800 cursor-pointer ${
+                            activeIndex === index ? 'bg-purple-500 text-purple-800' : ''
                         }`}
                         onClick={() => setActiveIndex(index)}
                     >
