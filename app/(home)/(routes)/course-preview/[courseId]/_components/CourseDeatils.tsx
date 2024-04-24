@@ -22,7 +22,7 @@ function CourseDetails({ courseDeatil }: CourseDetailProps) {
         <h2>total Chapter <span>{courseDeatil.totalChapters}</span> </h2>
 
       </div>
-      <p className='mt-2 line-clamp-3 text-gray-400'>{courseDeatil.description}lorem
+      <p className='mt-2 line-clamp-3 text-gray-400'>{courseDeatil.description}
       </p>
     </div>
   );

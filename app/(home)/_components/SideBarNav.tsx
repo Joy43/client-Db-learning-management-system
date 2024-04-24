@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import iconside from '@/public/Favicon.png'
-import { FaDashcube, FaPray, FaRegNewspaper, FaSearch } from 'react-icons/fa'
+import { FaDashcube, FaHome, FaPray, FaRegNewspaper, FaSearch } from 'react-icons/fa'
 
 export default function SideBarNav() {
     const menuList = [
@@ -29,6 +29,12 @@ export default function SideBarNav() {
             name: 'Newsletter',
             icon: FaRegNewspaper,
             path: '/newsletter'
+        },
+        {
+            id: 5,
+            name: 'Home',
+            icon: FaHome,
+            path: '/'
         }
     ]
 

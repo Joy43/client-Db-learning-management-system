@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 import onlineCourse from '@/public/images/study.gif'
+import Nextjs from '@/public/images/next js.gif'
+import Reactjs from '@/public/images/React js.gif'
+import Nodejs from '@/public/images/NODE JS.gif'
 import { Button } from '@mui/material';
 import Link from 'next/link';
 const Coursesonline:React.FC = () => {
@@ -34,14 +37,14 @@ const Coursesonline:React.FC = () => {
             </svg>
           </div>
           <button className="rounded-xl bg-[#0095FF] px-3 py-1 font-medium text-white duration-200 hover:bg-[#0095FF]/90">
-            30% off
+            20% off
           </button>
         </div>
         <Image
           width={300}
           height={300}
           className="h-full w-full rounded-lg bg-black/40"
-          src={onlineCourse}
+          src={Nextjs}
           alt="card navigate ui"
         />
       </div>
@@ -104,28 +107,30 @@ const Coursesonline:React.FC = () => {
             </svg>
           </div>
           <button className="rounded-xl bg-[#0095FF] px-3 py-1 font-medium text-white duration-200 hover:bg-[#0095FF]/90">
-            30% off
+            32% off
           </button>
         </div>
         <Image
           width={300}
           height={300}
           className="h-full w-full rounded-lg bg-black/40"
-          src={onlineCourse}
+          src={Reactjs}
           alt="card navigate ui"
         />
       </div>
       <div className="mx-auto w-[85%] space-y-2 text-center font-semibold">
         <h6 className="text-sm text-white md:text-base lg:text-lg">
-        Full-Stack web Developer Course in DB-Learn
+       React js web Developer Course in DB-Learn
         </h6>
         <p className="text-xs font-semibold text-gray-400 md:text-sm">Web Developer batch-7</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base">
-        <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
-          Buy now
+      <Link href='/broswer'>
+      <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
+        Enroall Now
         </button>
-        <Button className="flex bg-lime-300 items-center ">
+      </Link>
+        {/* <Button className="flex bg-lime-300 items-center ">
           <svg
             width={35}
             viewBox="0 0 24 24"
@@ -146,7 +151,7 @@ const Coursesonline:React.FC = () => {
             </g>
           </svg>
           <span className="text-[#05040b]">Add to Cart</span>
-        </Button>
+        </Button> */}
       </div>
     </div>
     <div className="mx-auto mb-3 my-10 max-w-[350px] space-y-6 rounded-xl bg-[#0a0c31] px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
@@ -169,28 +174,30 @@ const Coursesonline:React.FC = () => {
             </svg>
           </div>
           <button className="rounded-xl bg-[#0095FF] px-3 py-1 font-medium text-white duration-200 hover:bg-[#0095FF]/90">
-            30% off
+            10% off
           </button>
         </div>
         <Image
           width={300}
           height={300}
           className="h-full w-full rounded-lg bg-black/40"
-          src={onlineCourse}
+          src={Nodejs}
           alt="card navigate ui"
         />
       </div>
       <div className="mx-auto w-[85%] space-y-2 text-center font-semibold">
         <h6 className="text-sm text-white md:text-base lg:text-lg">
-        Full-Stack web Developer Course in DB-Learn
+       Node js  backend web Developer Course 
         </h6>
         <p className="text-xs font-semibold text-gray-400 md:text-sm">Web Developer batch-7</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base">
-        <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
-          Buy now
+      <Link href='/broswer'>
+      <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
+        Enroall Now
         </button>
-        <Button className="flex bg-lime-300 items-center ">
+      </Link>
+        {/* <Button className="flex bg-lime-300 items-center ">
           <svg
             width={35}
             viewBox="0 0 24 24"
@@ -211,7 +218,7 @@ const Coursesonline:React.FC = () => {
             </g>
           </svg>
           <span className="text-[#05040b]">Add to Cart</span>
-        </Button>
+        </Button> */}
       </div>
     </div>
 

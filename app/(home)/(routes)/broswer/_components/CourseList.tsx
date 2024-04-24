@@ -34,9 +34,9 @@ export default function CourseList({ courses }) {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base">
               <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600">
-                Buy now
+              Enroll Now
               </button>
-              <button className="flex bg-lime-300 items-center rounded-lg px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600 ">
+              {/* <button className="flex bg-lime-300 items-center rounded-lg px-4 py-2 font-sans font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600 ">
                 <svg
                   width={35}
                   viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function CourseList({ courses }) {
                   </g>
                 </svg>
                 <span className="text-[#05040b]">Add to Cart</span>
-              </button>
+              </button> */}
             </div>
           </div>
         
