@@ -5,10 +5,7 @@ import "./globals.css";
 
 import {Poppins}from "next/font/google"
 import Favicon from "@/public/Favicon.png"
-import { Providers } from "./Provider";
-import ResponsiveAppBar from "./components/NavItems";
-import Footer from "./components/Footer";
-import { Toaster } from "react-hot-toast";
+
 
 import { ClerkProvider } from '@clerk/nextjs'
 
@@ -38,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <ClerkProvider>
+    //  className={`${poppins.variable} ${josefin} bg-gradient-to-b from-gray-900 to-black duration-300`}
     <html lang="en">
-      <body className={`${poppins.variable} ${josefin} bg-gradient-to-b from-gray-900 to-black duration-300`}>
+      <body className="bg-gradient-to-b from-gray-900 to-black duration-300">
       
      <ClerkProvider>
      {children}

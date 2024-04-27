@@ -1,7 +1,6 @@
 'use client';
-import 'aos/dist/aos.css';
 
-import React,{FC,useEffect,useState} from "react";
+
 import ResponsiveAppBar from "./components/NavItems";
 import Footer from "./components/Footer";
 import Cover from "./components/cover";
@@ -13,26 +12,24 @@ import Classnote from './components/classnote';
 import Faq from './components/Faq';
 
 
-
-interface Props{}
-const Page:FC<Props> =(props)=>{
+function Page() {
 
  
   
   return(
-<div>
+<div >
 
 
-<ResponsiveAppBar></ResponsiveAppBar>
-<Cover></Cover>
-<Coursesonline></Coursesonline>
-<Classnote></Classnote>
-<Studentsay></Studentsay>
-<SuccessInfo></SuccessInfo>
-<Faq></Faq>
-<Footer></Footer>
+<ResponsiveAppBar />
+      <Cover />
+      <Coursesonline />
+      <Classnote />
+      <Studentsay />
+      <SuccessInfo />
+      <Faq/>
+      <Footer />
 
-
+      
 </div>
   )
 };

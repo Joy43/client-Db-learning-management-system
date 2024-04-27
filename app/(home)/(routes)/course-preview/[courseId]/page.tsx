@@ -1,12 +1,14 @@
-'use client'
-import { useEffect, useState } from 'react';
-import { getCourseListById } from '@/app/_services';
-import VideoPlayer from './_components/VideoPlayer';
-import CourseDetails from './_components/CourseDeatils';
-import OptionSection from './_components/OptionSection';
 
-import { useUser } from '@clerk/nextjs';
-import EnrollmentSection from './_components/EnrollmentSection';
+'use client'
+
+import { getCourseListById } from "@/app/_services";
+import { useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+import VideoPlayer from "./_components/VideoPlayer";
+import CourseDetails from "./_components/CourseDeatils";
+import OptionSection from "./_components/OptionSection";
+import EnrollmentSection from "./_components/EnrollmentSection";
+
 
 interface CourseDetail {
   chapter: {
@@ -14,11 +16,13 @@ interface CourseDetail {
       url: string;
     };
   }[];
-  userEnrollCourse?: {
-    courseId: string;
-  }[]; // Define userEnrollCourse as an array of objects with courseId property
+   
 }
-
+interface Course {
+  userEnrollCourses?: {
+    courseId: string;
+  }[]; 
+}
 
 interface CoursePreviewProps {
   params: {
@@ -26,22 +30,23 @@ interface CoursePreviewProps {
   };
 }
 
-const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
-  // const [courseDetail, setCourseDetails] = useState<CourseDetail | null>(null);
-  // const [courseDetail, setCourseDetails] = useState([])
+function CoursePreview ({ params }) {
+// const [userCourse, setUserCourse] = useState([]);
+//   const [courseDetail, setCourseDetails] = useState([]);
   const [courseDetail, setCourseDetails] = useState<CourseDetail | null>(null);
-  const [userCourse, setUserCourse] = useState<CourseDetail['userEnrollCourse'][0] | null>(null);
+  const [userCourse, setUserCourse] = useState;
+
   const { user } = useUser();
 
   useEffect(() => {
     if (params.courseId && user?.primaryEmailAddress?.emailAddress) {
-      getCourseListById(params.courseId, user?.primaryEmailAddress?.emailAddress)
-        .then((resp: CourseDetail) => {
+      getCourseListById(params.courseId, user.primaryEmailAddress.emailAddress)
+        .then((resp) => {
           setCourseDetails(resp);
           
-          // Check if userEnrollCourse exists and is not empty
-          if (resp.userEnrollCourse && resp.userEnrollCourse.length > 0) {
-            setUserCourse(resp.userEnrollCourse[0]);
+         
+          if (resp.userEnrollCourses && resp.userEnrollCourses.length > 0) {
+            setUserCourse(resp.userEnrollCourses[0]);
           } else {
             setUserCourse(null);
           }
@@ -57,14 +62,21 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
     console.log('userCourse:', userCourse);
   }, [params.courseId, user]);
   
+
+ 
+
+
   // useEffect(()=>{
-  //   params.courseId?getCourseListById(params.courseId):null;
-  // },[user])
+  //   params.courseId?getCourse(params.courseId):null;
+  // },[params.courseId,user])
+
   // const getCourse=()=>{
-  //   getCourse(params.courseId,user?.primaryEmailAddress?.emailAddress)
+  //   getCourseListById(params.courseId,user?.primaryEmailAddress?.emailAddress)
   //   .then(resp=>{
   //     console.log(resp);
   //     setCourseDetails(resp.courseList);
+  //     setUserCourse(resp?.userEnrollCourses[0])
+
 
   //   })
   // }

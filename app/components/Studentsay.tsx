@@ -6,7 +6,7 @@ import StudentFeedback from './StudentFeedback';
 const Studentsay:React.FC = () => {
     return (
         
-       <Card className='mt-4 mb-4 p-2 bg-[#0e0c13]'>
+       <div className='mt-4 mb-4 p-2 bg-[#0e0c13]'>
    <Grid className=' text-white bg-black lg:flex sm:grid' >
   <Grid item xs={4}>
   <Image
@@ -28,7 +28,7 @@ const Studentsay:React.FC = () => {
   </Grid> 
   </Grid>
 <StudentFeedback></StudentFeedback>
-       </Card>
+       </div>
 
       
     );

@@ -42,8 +42,8 @@ export default function SideBarNav() {
 
     return (
         <div>
-            <div className='h-full bg-[#0C1E2F] border-r flex flex-col p-5 border overflow-auto shadow-md'>
-             <div className='text-center items-center'>
+            <div className='h-full bg-[#0C1E2F] flex flex-col p-5 overflow-auto shadow-md'>
+             <div className='text-center ml-10 shadow-2xl items-center'>
              <Image src={iconside} width={80} alt='logo' height={70} />
              </div>
             

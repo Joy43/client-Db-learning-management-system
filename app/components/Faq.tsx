@@ -70,7 +70,7 @@ const Faq: React.FC = () => {
       {accordionData?.map((data, idx) => (
         <div key={idx} className="flex">
           {/* toggle item */}
-          <button onClick={() => handleToggle(idx)} className={`flex h-full w-14 flex-col items-center justify-around bg-customBlue relative rounded-lg text-white`}>
+          <button onClick={() => handleToggle(idx)} className={`flex h-full w-14 flex-col items-center justify-around bg-[#1e1558] relative rounded-lg text-white`}>
             {isActive === idx && <span className={`h-0 w-0 ${data?.colorBorder} absolute left-10 top-4 rotate-[225deg] border-b-[20px] border-r-[20px] border-r-transparent`}></span>}
             <p className="-rotate-90 md:rotate-0">{idx + 1}</p>
             <p className="rotate-[270deg] p-4">QUESTION</p>

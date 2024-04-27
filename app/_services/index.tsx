@@ -64,22 +64,25 @@ export const getCourseListById = async (id: any,userEmail:string): Promise<Cours
           name
           totalChapters
         }
-        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`"}) {
-          completedChapter
+        
+        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`", completedChapter: ""}) {
           courseId
           userEmail
+          completedChapter
         }
       }
-    `;
+    `
   
     try {
-      const { courseList } = await request<CourseListResponse>(MUSTER_URL, query); // Ensure CourseListResponse is defined somewhere
+      const { courseList } = await request<CourseListResponse>(MUSTER_URL, query); 
       return courseList;
     } catch (error) {
       console.error('Error fetching course list:', error);
       throw error;
     }
 };
+
+// ------------enrollCourse---------
 
 export const EnrollCourse=async(courseId,userEmail)=>{
   const mutationQuery=gql`
@@ -101,7 +104,8 @@ export const EnrollCourse=async(courseId,userEmail)=>{
   }
 }
 
-export const PublishCourse=async(id)=>{
+// -----------public course---------------
+export const PublishCourse=async(id:any)=>{
 const mutationQuery=gql`
 
 mutation EnrollCourse{
@@ -115,7 +119,7 @@ try {
   const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); // Ensure CourseListResponse is defined somewhere
   return courseList;
 } catch (error) {
-  console.error('Error fetching course list:', error);
+  console.error('  Enroll course fatching error:', error);
   throw error;
 };
 }
