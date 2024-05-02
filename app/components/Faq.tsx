@@ -56,7 +56,7 @@ const Faq: React.FC = () => {
     setIsActive((prevIdx) => (prevIdx === idx ? null : idx));
   };
   return (
- <div className='lg:flex sm:grid'>
+ <div className='lg:flex sm:grid' data-aos="fade-up" >
   
    
    <div >

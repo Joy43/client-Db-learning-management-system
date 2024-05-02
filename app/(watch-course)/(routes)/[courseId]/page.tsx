@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import ChapterNav from './_components/ChapterNav';
 import FullVideoPlayer from './_components/FullVideoPlayer';
-import { useUser } from '@clerk/nextjs';
+import { UserButton, useUser } from '@clerk/nextjs';
 
 
 function ViewCourse({params}) {
@@ -26,14 +26,17 @@ await getCourseById(params?.courseId,
 
     }
 
-  return (
+  return  course &&(
     <div className='flex'>
-     <div className='w-64 boder shadow-sm bg-white h-screen z-50'>
+     <div className='w-72 boder shadow-sm bg-white h-screen z-50'>
         <ChapterNav course={course}
-        userCourse={userCourse}></ChapterNav>
+        userCourse={userCourse} setActivechapter={(chapter)=>setActivechapter(chapter)}></ChapterNav>
      </div>
      <div>
-        <FullVideoPlayer></FullVideoPlayer>
+        <div className='float-right p-5'>
+            <UserButton></UserButton>
+        </div>
+        <FullVideoPlayer activeChapter={activeChapter}></FullVideoPlayer>
      </div>
     </div>
   )

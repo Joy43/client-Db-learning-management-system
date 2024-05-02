@@ -27,14 +27,13 @@ export default function About() {
              className='bg-white w-full'
             />
             
-            <blockquote className="relative p-8 mb-4">
-            
            
-            </blockquote>
-            <h4 className="text-xl font-bold uppercase text-white">Shahsultan Islam Joy</h4>
-              <p className="text-md font-light mt-2 text-white">
-                Putting together a page has never been easier than matching together pre-made components. From
-                landing pages 
+            <h4 className="text-xl mt-2 font-bold uppercase text-white">Shahsultan Islam Joy</h4>
+             
+              <strong className='text-purple-500'>About</strong>
+              <p className="text-md font-light mt-1 text-white">
+              I have extensive expertise in developing websites using JavaScript, React JS, Next JS, and other front-end technologies. In the backend
+As a skilled React Developer and Full Stack Web Developer, 
               </p>
           </div>
         </div>

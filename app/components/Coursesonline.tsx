@@ -16,7 +16,8 @@ const Coursesonline:React.FC = () => {
       </div>
 
       {/* -------card 1------ */}
-     <div className='grid lg:grid-cols-3 '>
+     <div data-aos="fade-up"
+     data-aos-duration="3000" className='grid lg:grid-cols-3 '>
      <div className="mx-auto mb-3 my-10 max-w-[350px] space-y-6 rounded-xl bg-[#0a0c31] px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
       <div className="relative flex h-48 w-full justify-center lg:h-[280px]">
         <div className="absolute left-4 right-4 top-4 flex items-center justify-between">

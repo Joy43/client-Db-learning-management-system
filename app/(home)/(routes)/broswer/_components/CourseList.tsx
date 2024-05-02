@@ -9,9 +9,9 @@ export default function CourseList({ courses }) {
     <div className='mt-5 grid grid-cols-2 text-white'>
      
       {courses.map((course, index) => (
-        <Link key={index}  href={'/course-preview/'+course.id}>
+        <Link key={index} href={'/course-preview/'+course.id}>
        
-          <div key={index} className="mx-auto mb-3 my-10 max-w-[350px] space-y-6 rounded-xl bg-[#0a0c31] px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
+          <div key={index}  data-aos="fade-down" className="mx-auto mb-3 my-10 max-w-[350px] space-y-6 rounded-xl bg-[#0a0c31] px-4 pb-8 pt-4 font-sans shadow-lg dark:bg-[#18181B]">
             <div className="relative flex h-48 w-full justify-center lg:h-[280px]">
               <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
                 <button className="rounded-xl bg-[#0095FF] px-3 py-1 font-medium text-white duration-200 hover:bg-[#0095FF]/90">

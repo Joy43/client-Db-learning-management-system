@@ -1,27 +1,27 @@
 
 'use client'
 
-import { getCourseListById } from "@/app/_services";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import VideoPlayer from "./_components/VideoPlayer";
 import CourseDetails from "./_components/CourseDeatils";
 import OptionSection from "./_components/OptionSection";
 import EnrollmentSection from "./_components/EnrollmentSection";
+import { getCourseListById } from "@/app/_services";
 
+
+interface Chapter {
+  video: {
+    url: string;
+  };
+}
 
 interface CourseDetail {
-  chapter: {
-    video: {
-      url: string;
-    };
-  }[];
-   
+  chapter: Chapter[];
 }
-interface Course {
-  userEnrollCourses?: {
-    courseId: string;
-  }[]; 
+
+interface UserEnrolledCourse {
+  courseId: string;
 }
 
 interface CoursePreviewProps {
@@ -30,38 +30,31 @@ interface CoursePreviewProps {
   };
 }
 
-function CoursePreview ({ params }) {
-// const [userCourse, setUserCourse] = useState([]);
-//   const [courseDetail, setCourseDetails] = useState([]);
+const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
   const [courseDetail, setCourseDetails] = useState<CourseDetail | null>(null);
-  const [userCourse, setUserCourse] = useState;
-
+  const [userCourse, setUserCourse] = useState<UserEnrolledCourse | null>(null); // Changed userCourse type to UserEnrolledCourse
   const { user } = useUser();
 
   useEffect(() => {
-    if (params.courseId && user?.primaryEmailAddress?.emailAddress) {
-      getCourseListById(params.courseId, user.primaryEmailAddress.emailAddress)
-        .then((resp) => {
+    const fetchCourse = async () => {
+      if (params.courseId && user?.primaryEmailAddress?.emailAddress) {
+        try {
+          const resp = await getCourseListById(params.courseId, user.primaryEmailAddress.emailAddress);
           setCourseDetails(resp);
-          
-         
-          if (resp.userEnrollCourses && resp.userEnrollCourses.length > 0) {
-            setUserCourse(resp.userEnrollCourses[0]);
-          } else {
-            setUserCourse(null);
-          }
-  
+          setUserCourse(resp.userEnrollCourses && resp.userEnrollCourses.length > 0 ? resp.userEnrollCourses[0] : null);
           console.log(resp);
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error('Error fetching course:', error);
-      
-          console.error(error.message);
-        });
-    }
-    console.log('userCourse:', userCourse);
+        }
+      }
+    };
+
+    fetchCourse();
+
+    return () => {
+      // Clean up
+    };
   }, [params.courseId, user]);
-  
 
  
 

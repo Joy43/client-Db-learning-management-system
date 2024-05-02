@@ -6,8 +6,8 @@ import Notedemo from '@/public/images/note.png'
 
 const Classnote:React.FC = () => {
     return (
-        <div className=' bg-[#17193b] text-white justify-around 
-        flex rounded-full '>
+        <div className='  bg-[#17193b] text-white justify-around 
+        flex rounded-full' data-aos="flip-left">
             {/*---------- content------------ */}
 <div className=' m-2 ml-8'>
 

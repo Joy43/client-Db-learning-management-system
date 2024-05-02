@@ -2,7 +2,7 @@
 import React from 'react'
 import SideBarNav from '../_components/SideBarNav';
 import Header from '../_components/Header';
-import ResponsiveAppBar from '@/app/components/NavItems';
+
 
 export default function homelayout({children}) {
   return (

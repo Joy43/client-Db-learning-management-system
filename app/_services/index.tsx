@@ -44,7 +44,7 @@ export const getCourseList = async (): Promise<Course[]> => {
 // ---------------couser list----------
 
 
-export const getCourseListById = async (id: any,userEmail:string): Promise<Course[]> => {
+export const getCourseListById = async (id: any,userEmail:string) => {
     const query = gql`
       query MyQuery {
         courseList(where: { id: "${id}" }) {
@@ -64,12 +64,14 @@ export const getCourseListById = async (id: any,userEmail:string): Promise<Cours
           name
           totalChapters
         }
-        
-        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`", completedChapter: ""}) {
+     
+        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`", }) {
           courseId
           userEmail
           completedChapter
+          
         }
+      
       }
     `
   
@@ -95,8 +97,9 @@ export const EnrollCourse=async(courseId,userEmail)=>{
   
   
   `
+  // Ensure CourseListResponse is defined somewhere
   try {
-    const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); // Ensure CourseListResponse is defined somewhere
+    const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); 
     return courseList;
   } catch (error) {
     console.error('Error fetching course list:', error);
@@ -115,8 +118,9 @@ mutation EnrollCourse{
   }
 }
 `
+// Ensure CourseListResponse is defined somewhere
 try {
-  const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); // Ensure CourseListResponse is defined somewhere
+  const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); 
   return courseList;
 } catch (error) {
   console.error('  Enroll course fatching error:', error);

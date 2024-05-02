@@ -11,11 +11,16 @@ import SuccessInfo from './components/Sucessinfo';
 import Classnote from './components/classnote';
 import Faq from './components/Faq';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
+
 
 function Page() {
 
- 
-  
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return(
 <div >
 

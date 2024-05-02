@@ -1,19 +1,24 @@
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import studyimg from "@/public/images/study.gif"
 import { Avatar, AvatarGroup, Card, Input } from '@mui/material'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Cover: React.FC = () => {
+
   return (
   <Card className='mt-6 mb-4'>
-  <div className='lg:flex sm:grid'>
+    {/* -------------left side animation -------------- */}
+  <div className='lg:flex sm:grid ' data-aos="fade-up">
 
 <div className=' shadow-md p-2 '>
 <Image src={studyimg}  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Picture of the author"></Image>
 
 
 </div>
-{/* ---------------card---------- */}
-<div className='bg-black'>
+{/* ---------------right side card written part---------- */}
+<div data-aos="fade-right" className='bg-black' >
 
 <div className=" sm:px-2 px-3 mx-3 max-h-[800px] py-20 rounded-t-2xl bg-[#0c1e2f]">
 <div className="flex justify-center flex-col">

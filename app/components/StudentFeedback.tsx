@@ -32,7 +32,7 @@ const StudentFeedback: React.FC = () => {
 
     return (
         <div className="max-w-full  min-w-[350px] mx-auto h-[400px] flex flex-row items-center overflow-hidden gap-5 lg:gap-10 px-8 md:px-16 lg:px-24">
-            <div className="relative bg-[#040612] text-white overflow-hidden">
+            <div className="relative bg-[#040612] text-white overflow-hidden" data-aos="fade-up">
                 <div className="absolute text-white w-full h-full flex items-center justify-between z-50 px-5">
                     {/* arrow left */}
                     <button onClick={prevSlider} className="flex bg-sky-950  after: justify-center items-center rounded-full w-6 h-6 md:w-8 md:h-8">
@@ -59,7 +59,7 @@ const StudentFeedback: React.FC = () => {
                 <div className="ease-linear  shadow-2xl duration-300 flex" style={{ transform: `translateX(-${currentSlider * (isSmallScreen ? 100 : 50)}%)` }}>
                     {/* sliders */}
                     {array.map((each, idx) => (
-                        <div key={idx} className="p-4 min-w-full md:min-w-[50%]">
+                        <div key={idx}  className="p-4 min-w-full md:min-w-[50%]">
                             <div className="h-full p-8 rounded shadow-[0px_4px_12px_rgba(0,0,0,0.1)]">
                              {/* -------icon and star */}
                                 <div className='flex justify-around'>
@@ -70,7 +70,7 @@ const StudentFeedback: React.FC = () => {
                                         <span className=" text-sm">{each?.designation}</span>
                                     </span>
                                 </a>
-                                <StarOutlineIcon></StarOutlineIcon>
+                                <StarOutlineIcon  data-aos="fade-down-right"></StarOutlineIcon>
                                
                                 </div>
                                 <p className="leading-relaxed mb-6 ">{each?.testimonialDescription}</p>
