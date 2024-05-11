@@ -41,7 +41,7 @@ function Allnote() {
             <div className="text-4xl text-purple-100">{file.downloads}</div>
           </div>
           <div className="text-purple-300 my-auto bg-gradient-to-l from-purple-700 via-purple-800 to-purple-900 rounded-full p-4">
-            {/* Download Icon */}
+            {/* -----------Download Icon ---------------*/}
             <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
             </svg>

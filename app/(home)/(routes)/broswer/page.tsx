@@ -1,8 +1,10 @@
 'use client';
-import { getCourseList } from '@/app/_services';
+
 import React, { useEffect, useState } from 'react';
 import CategoryFilter from './_components/CategoryFilter';
 import CourseList from './_components/CourseList';
+import { getCourseList } from '@/app/_services';
+
 
 
 

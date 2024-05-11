@@ -65,7 +65,7 @@ export const getCourseListById = async (id: any,userEmail:string) => {
           totalChapters
         }
      
-        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`", }) {
+        userEnrollCourses(where: {courseId: "`+id+`", userEmail: "`+userEmail+`",completedChapter: "" }) {
           courseId
           userEmail
           completedChapter

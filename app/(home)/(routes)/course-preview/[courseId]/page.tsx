@@ -10,6 +10,7 @@ import EnrollmentSection from "./_components/EnrollmentSection";
 import { getCourseListById } from "@/app/_services";
 
 
+
 interface Chapter {
   video: {
     url: string;
