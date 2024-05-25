@@ -97,7 +97,7 @@ export const EnrollCourse=async(courseId,userEmail)=>{
   
   
   `
-  // Ensure CourseListResponse is defined somewhere
+  
   try {
     const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); 
     return courseList;
@@ -118,7 +118,6 @@ mutation EnrollCourse{
   }
 }
 `
-// Ensure CourseListResponse is defined somewhere
 try {
   const { courseList } = await request<CourseListResponse>(MUSTER_URL, mutationQuery); 
   return courseList;

@@ -8,6 +8,8 @@ import CourseDetails from "./_components/CourseDeatils";
 import OptionSection from "./_components/OptionSection";
 import EnrollmentSection from "./_components/EnrollmentSection";
 import { getCourseListById } from "@/app/_services";
+import Chapter from "./_components/Chapter";
+import Course from "./_components/Course";
 
 
 
@@ -33,8 +35,9 @@ interface CoursePreviewProps {
 
 const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
   const [courseDetail, setCourseDetails] = useState<CourseDetail | null>(null);
-  const [userCourse, setUserCourse] = useState<UserEnrolledCourse | null>(null); // Changed userCourse type to UserEnrolledCourse
+  const [userCourse, setUserCourse] = useState< courseDetail | null>(null); // Changed userCourse type to UserEnrolledCourse
   const { user } = useUser();
+  const [course, setCourse] = useState<Course | null>(null);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -87,8 +90,11 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
           {/* ---------enroll section------- */}
           <div className='mt-5'>
 <OptionSection></OptionSection>
-<EnrollmentSection courseDetail={courseDetail}
-userCourse={userCourse}></EnrollmentSection>
+{/* <EnrollmentSection courseDetail={courseDetail}
+userCourse={userCourse}></EnrollmentSection> */}
+
+        <Course course={courseDetail}  />
+  
           </div>
         </div>
       ) : (
