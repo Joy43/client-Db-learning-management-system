@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaBook } from 'react-icons/fa';
+import { FaBook, FaCopy, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface CourseDetailProps {
   courseDeatil: {
     name: string;
     totalChapters:number;
     description:string;
+    sourceCode:string
     // Add other properties here
   };
 }
@@ -24,6 +25,13 @@ function CourseDetails({ courseDeatil }: CourseDetailProps) {
       </div>
       <p className='mt-2 line-clamp-3 text-gray-400'>{courseDeatil.description}
       </p>
+      <div className='flex items-center text text-purple-600 gap-2 mt-3'>
+     
+      <FaExternalLinkAlt />
+
+        <a className='text-blue-500' href={courseDeatil.sourceCode}> Get SourceCode</a>
+        <p></p>
+      </div>
     </div>
   );
 }

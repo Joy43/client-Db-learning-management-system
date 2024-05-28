@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { FaCouch, FaNodeJs, FaReact } from 'react-icons/fa';
 import { SiNextdotjs } from "react-icons/si";
 import { TbBrandJavascript } from "react-icons/tb";
-export default function CategoryFilter() {
+export default function CategoryFilter({selectedCategory}) {
   const[activeIndex,setActiveIndex]=useState(0)
   type FilterOption={
     id:number;
@@ -53,7 +53,7 @@ export default function CategoryFilter() {
           <button key={item.id}  className={
             `border inline-flex  items-center gap-2 p-2 px-4 rounded-md text-xl hover:border-purple-600 font-semibold 
             ${activeIndex===index?'border-purple-800 text-purple-800 bg-slate-200':null}`
-          } onClick={()=>setActiveIndex(index)}>
+          } onClick={()=>{setActiveIndex(index);selectedCategory(item.value)}}>
             <item.icon/>
             <h2>{item.name}</h2>
 

@@ -1,23 +1,25 @@
 'use client';
-import  { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import Chapter from './Chapter';
-
-
-import { Course as CourseType, Chapter as ChapterType } from './types';
 import CourseVid from './CourseVid';
+import { Course as CourseType, Chapter as ChapterType } from './types';
 
 interface CourseProps {
   course: CourseType;
 }
 
-
 function Course({ course }: CourseProps) {
-    const [activeChapter, setActiveChapter] = useState<ChapterType>(course.chapter[0]);
+  const [activeChapter, setActiveChapter] = useState<ChapterType>(course.chapter[0]);
+
+  useEffect(() => {
+    console.log('Active Chapter:', activeChapter);
+  }, [activeChapter]);
 
   return (
-    <div className='grid'>
+    <div className='flex gap-4'>
       <Chapter course={course} setActiveChapter={setActiveChapter} />
-<CourseVid  chapter={activeChapter}></CourseVid>
+      <CourseVid activeChapter={activeChapter} />
     </div>
   );
 }

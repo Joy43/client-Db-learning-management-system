@@ -33,7 +33,7 @@ function Allnote() {
   };
 
   return (
-    <div className='grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 min-h-screen bg-purple-900'>
+    <div className='grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 min-h-screen bg-[#17193b]'>
       {files.map((file, index) => (
         <div key={index} onClick={() => handleDownload(file.id)} className="flex flex-row m-auto bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 p-6 gap-8 rounded-lg border-2 border-purple-500 cursor-pointer">
           <div className="my-auto">

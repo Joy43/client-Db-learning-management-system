@@ -48,7 +48,7 @@ function EnrollmentSection({ courseDetail, userCourse }: CourseDetailProps) {
   };
 
   return (
-    <div>
+    <div className=" ">
       {userCourse && userCourse.courseId ? (
         <div>
           <h2>Learn and continue building project</h2>

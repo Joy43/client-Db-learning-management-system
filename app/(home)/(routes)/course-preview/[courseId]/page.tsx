@@ -1,5 +1,6 @@
 
 'use client'
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
@@ -81,24 +82,29 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
   return (
     <div className="text-white">
       {courseDetail ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="col-span-2">
+        <div className="">
+<div className='grid grid-cols-2  gap-3'>
+<CourseDetails courseDeatil={courseDetail}></CourseDetails> 
+<OptionSection></OptionSection>
+
+</div>
+          {/* <div className="col-span-2">
           {courseDetail?.chapter[0]? 
            <VideoPlayer videoUrl={courseDetail.chapter[0]?.video.url} />:null}
-            <CourseDetails courseDeatil={courseDetail}></CourseDetails>
-          </div>
+            
+          </div> */}
           {/* ---------enroll section------- */}
-          <div className='mt-5'>
-<OptionSection></OptionSection>
+          <div className='mt-5 grid gap-4'>
+
 {/* <EnrollmentSection courseDetail={courseDetail}
 userCourse={userCourse}></EnrollmentSection> */}
 
         <Course course={courseDetail}  />
-  
+        
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <CircularProgress disableShrink />
       )}
     </div>
   );

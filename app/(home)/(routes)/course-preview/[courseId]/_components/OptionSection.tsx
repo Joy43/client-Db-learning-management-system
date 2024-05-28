@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
-import EnrollmentSection from './EnrollmentSection';
+
 
 interface Option {
   id: number;
@@ -29,7 +29,7 @@ const OptionSection: React.FC = () => {
   ];
 
   return (
-    <div className='flex items-center gap-3 bg-slate-950 text-white'>
+    <div className='flex items-center gap-3 bg-slate-950 text-white  p-4 rounded-md shadow-md'>
       {optionsList.map((option,index) => (
         <div key={index} className='p-2 border rounded-lg flex flex-col items-center w-full cursor-pointer'>
           {typeof option.icon === 'string' ? null : <option.icon />}

@@ -6,12 +6,8 @@ import CountUp from 'react-countup';
 const SuccessInfo: React.FC = () => {
     return (
          <div className="bg-gray-800  flex items-center justify-center" data-aos="zoom-out-down" >
-            <div  className="bg-[#0a0c31]  justify-center items-center max-w-max text-white p-8 rounded-lg shadow-md">
-                {/* <div className="relative">
-                <Image src="https://i.ibb.co/hFYPj2k/sucess.png" layout="fill"
-                 objectFit="cover" objectPosition="center" />
-
-                </div> */}
+            <div  className="bg-[#0a0c31]  justify-center items-center w-screen text-white p-8 rounded-lg shadow-md">
+                
                 <h1 className="text-2xl text-center  font-extrabold mt-4">
                     DB Learn for 2021-2024 academic Year Success
                 </h1>
