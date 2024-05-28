@@ -29,7 +29,7 @@ function CourseDetails({ courseDeatil }: CourseDetailProps) {
      
       <FaExternalLinkAlt />
 
-        <a className='text-blue-500' href={courseDeatil.sourceCode}> Get SourceCode</a>
+        <a className='text-blue-500' href={courseDeatil.sourceCode} target="_blank"> Get SourceCode</a>
         <p></p>
       </div>
     </div>

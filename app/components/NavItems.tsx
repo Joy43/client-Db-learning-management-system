@@ -1,4 +1,4 @@
-
+// ResponsiveAppBar.tsx
 'use client';
 
 import AppBar from '@mui/material/AppBar';
@@ -9,37 +9,28 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import  {  useEffect,useState } from 'react';
-import Link from 'next/link'; 
+import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { MdDashboardCustomize } from "react-icons/md";
-
+import { useEffect, useState, MouseEvent } from 'react';
+import MenuItem from '@mui/material/MenuItem'; // <-- Add this import
 
 const pages = [
-  { name: 'Home', url: '/' },
+ 
   { name: 'About', url: '/about' },
   { name: 'Policy', url: '/policy' },
-
- 
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  // ---------user manage-----------
+  const { user } = useUser();
 
-  const {user}=useUser();
- useEffect(()=>{
-    console.log(user)
-  },[user])
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -56,9 +47,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container className='bg-black' maxWidth="xl">
         <Toolbar disableGutters>
-          
           <Typography
-          
             variant="h6"
             noWrap
             component="a"
@@ -73,7 +62,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-           <strong className='text-2xl text-pink-700 ' > DB-Learn</strong>
+           <strong className='text-2xl text-pink-700'>DB-Learn</strong>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -90,20 +79,12 @@ function ResponsiveAppBar() {
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+              sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
@@ -114,12 +95,12 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-        
+
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -143,63 +124,28 @@ function ResponsiveAppBar() {
                 <Link href={page.url}>{page.name}</Link>
               </Button>
             ))}
-           
-           
           </Box>
-{/* --------------end option------- */}
-          <div className='flex gap-6 p-2'>
-             {/* -----dashboad------ */}
-             <Link href='/broswer' passHref>
-            <Button className="flex items-center gap-2 px-4 py-2 rounded-md
-             bg-gray-900 text-gray-50 hover:bg-gray-800 transition-colors">
-      <MdDashboardCustomize className="h-5 w-5" />
-      <span>Dashboard</span>
-    </Button>
-            </Link>
           
-  {/*  Check if user is logged in */}
-          {user? ( 
+          <div className='flex gap-6 p-2'>
+            <Link href={user?.publicMetadata?.role === 'admin' ? '/dashboard' : '/broswer'} passHref>
+              <Button className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-900 text-gray-50 hover:bg-gray-800 transition-colors">
+                <MdDashboardCustomize className="h-5 w-5" />
+                <span>Dashboard</span>
+              </Button>
+            </Link>
 
-<UserButton></UserButton>
-              // <Box sx={{ flexGrow: 0 }}>
-              //   <Tooltip title="Open settings">
-              //     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    
-              //     </IconButton>
-              //   </Tooltip>
-              //   <Menu
-              //     sx={{ mt: '45px' }}
-              //     id="menu-appbar"
-              //     anchorEl={anchorElUser}
-              //     anchorOrigin={{
-              //       vertical: 'top',
-              //       horizontal: 'right',
-              //     }}
-              //     keepMounted
-              //     transformOrigin={{
-              //       vertical: 'top',
-              //       horizontal: 'right',
-              //     }}
-              //     open={Boolean(anchorElUser)}
-              //     onClose={handleCloseUserMenu}
-              //   >
-              //     {/* {settings.map((setting) => (
-              //       <MenuItem key={setting} onClick={handleCloseUserMenu}>
-              //         <Typography textAlign="center">{setting}</Typography>
-              //       </MenuItem>
-              //     ))} */}
-              //   </Menu>
-              // </Box>
+            {user ? (
+              <UserButton />
             ) : (
               <Link href="/sign-up" passHref>
                 <Button color="inherit">Login</Button>
               </Link>
             )}
-       
           </div>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

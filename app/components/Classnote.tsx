@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Classnote: React.FC = () => {
     return (
-        <div className='bg-[#17193b] text-white justify-around flex rounded-full' data-aos="flip-left">
+        <div className='bg-[#17193b] text-white justify-around flex rounded-full' data-aos="fade-down-right">
             {/*---------- content------------ */}
             <div className='m-2 ml-8'>
                 <div className='mt-4'>

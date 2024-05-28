@@ -95,7 +95,7 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ params }) => {
           </div> */}
           {/* ---------enroll section------- */}
           <div className='mt-5 grid gap-4'>
-
+<div> {}</div>
 {/* <EnrollmentSection courseDetail={courseDetail}
 userCourse={userCourse}></EnrollmentSection> */}
 
