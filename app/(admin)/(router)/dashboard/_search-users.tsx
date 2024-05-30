@@ -1,5 +1,6 @@
 "use client";
 
+import { Button, Label } from "flowbite-react";
 import { usePathname, useRouter } from "next/navigation";
 
 export const SearchUsers = () => {
@@ -8,7 +9,7 @@ export const SearchUsers = () => {
 
   return (
     <div className="grid m-6 gap-4">
-      <form className="text-blue-500 grid"
+      <form className="text-blue-500 grid gap-4"
         onSubmit={async (e) => {
           e.preventDefault();
           const form = e.currentTarget;
@@ -17,9 +18,9 @@ export const SearchUsers = () => {
           router.push(pathname + "?search=" + queryTerm);
         }}
       >
-        <label htmlFor="search">Search for Users</label>
+        <Label className="text-white font-semibold" htmlFor="search">Search for Users:-</Label>
         <input id="search" name="search" type="text" />
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );

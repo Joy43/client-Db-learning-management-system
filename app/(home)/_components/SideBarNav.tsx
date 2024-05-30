@@ -15,49 +15,28 @@ export default function SideBarNav() {
             icon: FaUser,
             path:'users'
         },
-        // {
-        //     id: 2,
-        //     name: 'Browser',
-        //     icon: FaSearch,
-        //     path: '/browser'
-        // },
+        
         
         {
-            id: 3,
+            id: 2,
             name: 'Live Class',
             icon: RiLiveFill,
             path: '/liveclass'
         },
         {
-            id: 4,
-            name: 'Newsletter',
+            id: 3,
+            name: 'Quiz Play',
             icon: FaRegNewspaper,
-            path: '/newsletter'
+            path: '/quizplay'
         },
         {
-            id: 5,
+            id: 4,
             name: 'Home',
             icon: FaHome,
             path: '/'
         }
     ]
-    // menuAdmin=[
-        
-    //         {
-    //             id: 1,
-    //             name: 'admin profile',
-    //             icon: FaUser,
-    //             path:'users'
-    //         },
-    //         {
-    //             id: 2,
-    //             name: 'Browser',
-    //             icon: FaSearch,
-    //             path: '/browser'
-    //         }   
-        
-    // ]
-
+    
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleNavigation = (path, index) => {
@@ -73,12 +52,12 @@ export default function SideBarNav() {
                 </div>
                 
                 {/* ------------menu-------- */}
-                <div className='flex flex-col'>
+                <div className='flex flex-col gap-4 m-4'>
                     {menuList.map((item, index) => (
                         <div
                             key={item.id}
-                            className={`flex gap-2 items-center p-4 px-6 text-zinc-200 hover:bg-blue-800 cursor-pointer ${
-                                activeIndex === index ? 'bg-purple-500 text-purple-800' : ''
+                            className={`flex text-lg rounded-md shadow-lg gap-3 items-center p-4 px-6 text-zinc-200 hover:bg-[#382698] cursor-pointer ${
+                                activeIndex === index ? 'bg-[#003285] text-purple-800' : ''
                             }`}
                             onClick={() => handleNavigation(item.path, index)}
                         >

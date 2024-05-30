@@ -1,4 +1,4 @@
-
+import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import {  Josefin_Sans } from "next/font/google";
 import "./globals.css";
@@ -40,6 +40,7 @@ export default function RootLayout({
       <body className="bg-gradient-to-b from-gray-900 to-black duration-300">
       
      <ClerkProvider>
+     <Toaster position="top-center" />
      {children}
      </ClerkProvider>
     

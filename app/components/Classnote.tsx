@@ -1,8 +1,9 @@
-import { Button } from 'flowbite-react';
+
 import Image from 'next/image';
 import React from 'react';
 import Notedemo from '@/public/images/note.png';
 import Link from 'next/link';
+import { Button } from '@mui/material';
 
 const Classnote: React.FC = () => {
     return (
@@ -10,11 +11,13 @@ const Classnote: React.FC = () => {
             {/*---------- content------------ */}
             <div className='m-2 ml-8'>
                 <div className='mt-4'>
-                    <h1>Best teacher made class notes and<br /> Need lecture sheets?</h1>
+                    <h1>Best teacher made class notes and<br /> Need lecture sheets?  </h1>
+                    <br />
+                    <p>  Are you ready for  study juerny</p>
                 </div>
                 <div className='mt-6'>
                     <Link href="/allnote" passHref>
-                        <Button className='flex'>
+                        <Button variant="outlined" color="error" className='flex bg-sky-400'>
                             <span>Free Download</span>
                         </Button>
                     </Link>

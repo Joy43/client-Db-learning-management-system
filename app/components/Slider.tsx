@@ -3,7 +3,13 @@ import { useState } from "react";
 
 export const Carousel4 = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  const sliders = [{img: "https://source.unsplash.com/1200x540/?nature", title: "Escape 1", des: "A Symphony of Tranquility. Experience the perfect blend of relaxation and excitement."}, {img: "https://source.unsplash.com/1200x540/?hill", title: "Escape 2", des: "A Symphony of Tranquility. Experience the perfect blend of relaxation and excitement."}, {img: "https://source.unsplash.com/1200x540/?mountain", title: "Escape 3", des: "A Symphony of Tranquility. Experience the perfect blend of relaxation and excitement."}, {img: "https://source.unsplash.com/1200x540/?river", title: "Escape 4", des: "A Symphony of Tranquility. Experience the perfect blend of relaxation and excitement."}, {img: "https://source.unsplash.com/1200x540/?sea", title: "Escape 5", des: "A Symphony of Tranquility. Experience the perfect blend of relaxation and excitement."},];
+  const sliders = [
+    {img: "https://source.unsplash.com/1200x540/?nature", title: "Escape 1", des: "There was no time to learn offline so opt for online courses. In the course, the font Tanveen Maad has been taught very beautifully. I was able to master Shuddha "},
+   {img: "https://source.unsplash.com/1200x540/?hill", title: "Escape 2", des: "আমার একটি অনলাইন পেজ ছিল কিন্তু পেইজটিকে নিয়ে কিভাবে সামনে আগাবে কোন কিছু বুঝতে পারছিলাম না"},
+    {img: "https://source.unsplash.com/1200x540/?mountain", title: "Escape 3", des: "অনলাইন ব্যাচের ক্লাসের সবচেয়ে চমৎকার বিষয় হলো ক্লাসে পড়ানোর টেকনিক"},
+     {img: "https://source.unsplash.com/1200x540/?river", title: "Escape 4", des: "JavaScript is a universal recipe when it comes to developing web applications. But its possibilities go far beyond that"}, 
+
+];
   const prevSlider = () => setCurrentSlider((currentSlider) => currentSlider === 0 ? sliders.length - 1 : currentSlider - 1);
   const nextSlider = () => setCurrentSlider((currentSlider) => currentSlider === sliders.length - 1 ? 0 : currentSlider + 1);
   const isSmallScreen = window.innerWidth <= 768;

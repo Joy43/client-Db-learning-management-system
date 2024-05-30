@@ -13,8 +13,8 @@ import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { MdDashboardCustomize } from "react-icons/md";
-import { useEffect, useState, MouseEvent } from 'react';
-import MenuItem from '@mui/material/MenuItem'; // <-- Add this import
+import {  useState, MouseEvent } from 'react';
+import MenuItem from '@mui/material/MenuItem'; 
 
 const pages = [
  
@@ -137,7 +137,7 @@ function ResponsiveAppBar() {
             {user ? (
               <UserButton />
             ) : (
-              <Link href="/sign-up" passHref>
+              <Link href="/sign-in" passHref>
                 <Button color="inherit">Login</Button>
               </Link>
             )}

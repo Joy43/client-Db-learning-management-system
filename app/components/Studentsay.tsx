@@ -21,11 +21,9 @@ const Studentsay:React.FC = () => {
 <div className='text-2xl text-center'>  <h1 className=''>Our students Are <span className='text-blue-700 '>Our Stength</span> </h1>
   <h2 className=''>See waht they say aout us</h2></div>
   <p 
-       className=' mt-4 text-lg p-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Labore est aliquid veritatis! Sit laborum veniam a beatae. 
-    Animi quos pariatur quam mollitia minima. A soluta nihil 
-    enim quo libero fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-   deleniti maiores soluta temporibus molestias, asperiores dolore molestiae impedit.</p>
+       className=' m-4 text-lg p-2'>
+       "I've grown so much academically and personally thanks to the amazing community at this school."
+       "The learning environment is top-notch, with plenty of resources and opportunities to explore our interests."</p>
   </Grid> 
   </Grid>
 <StudentFeedback></StudentFeedback>

@@ -19,11 +19,15 @@ export default async function AdminDashboard(params: {
   const users = query ? (await clerkClient.users.getUserList({ query })).data : [];
 
   return (
-    <div className="bg-slate-900 grid text-white w-full">
-      <h1>This is the admin dashboard</h1>
+    <div className="bg-slate-900 grid text-white">
+   <div className="text-center">
+   <h1>This is the admin dashboard</h1>
       <p>This page is restricted to users with the  role.</p>
+   </div>
 
-      <SearchUsers />
+     <div className="mx-auto flex items-center">
+     <SearchUsers />
+     </div>
 
 
       {users.map((user) => {
